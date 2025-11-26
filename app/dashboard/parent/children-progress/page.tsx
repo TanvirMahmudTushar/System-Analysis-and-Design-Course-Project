@@ -12,6 +12,10 @@ export default function ChildrenProgressPage() {
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
+    // Get child index from query param
+    const params = new URLSearchParams(window.location.search)
+    const childIdx = parseInt(params.get("child") || "0", 10)
+    setSelectedChild(childIdx)
     // Mock children progress data
     setChildren([
       {

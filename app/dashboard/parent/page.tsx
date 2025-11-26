@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Users, TrendingUp, AlertCircle } from "lucide-react"
+import Link from "next/link"
 import DashboardNav from "@/components/dashboard-nav"
 
 export default function ParentDashboard() {
@@ -88,9 +89,11 @@ export default function ParentDashboard() {
                     </div>
                     <span className="text-2xl font-bold text-primary">{child.avg}%</span>
                   </div>
-                  <Button variant="outline" size="sm" className="w-full bg-transparent">
-                    View Details
-                  </Button>
+                  <Link href={`/dashboard/parent/children-progress?child=${i}`} passHref>
+                    <Button as="a" variant="outline" size="sm" className="w-full bg-transparent">
+                      View Details
+                    </Button>
+                  </Link>
                 </div>
               ))}
             </div>
